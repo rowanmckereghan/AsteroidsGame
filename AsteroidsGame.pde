@@ -37,6 +37,7 @@ public void keyPressed()
 	if (key == 'w')
 	{
 		w = true;
+		player.rockets = true;
 	}
 	if (key == 's')
 	{
@@ -65,6 +66,7 @@ public void keyReleased()
 	if (key == 'w')
 	{
 		w = false;
+		player.rockets = false;
 	}
 	if (key == 's')
 	{

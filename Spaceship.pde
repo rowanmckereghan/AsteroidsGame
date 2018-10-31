@@ -14,7 +14,7 @@ class Spaceship extends Floater
 		yCorners[2] = 8;
 		xCorners[3] = 0;
 		yCorners[3] = 0;
-		myColor = color(255, 0, 0);
+		myColor = color(190,217,221);
 		myCenterX = 250;
 		myCenterY = 250;
 		myPointDirection = 0;
@@ -86,7 +86,12 @@ class Spaceship extends Floater
     if (rockets == true)
     {
     	fill(62, 101, 192);
-    	//ellipse(myCenterX )
+    	stroke(62, 101, 192);
+    	beginShape();
+    	vertex(1,0);
+    	vertex(-7, -7);
+    	vertex(-7, 7);
+    	endShape(CLOSE);
     }
 
     //"unrotate" and "untranslate" in reverse order
