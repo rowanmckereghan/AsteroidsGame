@@ -49,7 +49,7 @@ public void keyPressed()
 		player.setY((int)(Math.random()*480)+20);
 		player.setDirectionX(0);
 		player.setDirectionY(0);
-		player.setPointDirection((int)(Math.random()*(3000)));
+		player.setPointDirection((float)(Math.random()*(3000)));
 	}
 }
 

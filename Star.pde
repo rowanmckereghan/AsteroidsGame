@@ -1,7 +1,7 @@
 class Star //note that this class does NOT extend Floater
 {
-  int x, y;
-  float size;
+  private int x, y;
+  private float size;
   public Star()
   {
   	x = (int)(Math.random()*500);
