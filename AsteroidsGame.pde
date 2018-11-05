@@ -1,4 +1,5 @@
 Spaceship player = new Spaceship();
+Asteroids gang = new Asteroids(400, 400);
 Star wars[] = new Star[300];
 boolean w, s, a, d;
 public void setup() 
@@ -17,6 +18,8 @@ public void draw()
 		wars[i].show();
 	}
 	strokeWeight(1);
+	gang.show();
+	gang.move();
 	player.show();
 	player.move();
 	if (d == true) {player.turn(4);}

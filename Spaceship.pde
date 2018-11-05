@@ -1,6 +1,6 @@
 class Spaceship extends Floater  
 {   
-	boolean rockets;
+	public boolean rockets;
 	public Spaceship()
 	{
 		corners = 4;
