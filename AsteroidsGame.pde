@@ -1,5 +1,5 @@
 Spaceship player = new Spaceship();
-Asteroids gang = new Asteroids(400, 400);
+Asteroids gang[] = new Asteroids[7];
 Star wars[] = new Star[300];
 boolean w, s, a, d;
 public void setup() 
@@ -8,6 +8,10 @@ size(512, 512);
 for (int i = 0; i < wars.length; i += 1)
 {
 	wars[i] = new Star();
+}
+for (int z = 0; z < gang.length; z += 1)
+{
+	gang[z] = new Asteroids(((int)Math.random()*400) + 50, ((int)Math.random()*400) + 50);
 }
 }
 public void draw() 
@@ -18,8 +22,11 @@ public void draw()
 		wars[i].show();
 	}
 	strokeWeight(1);
-	gang.show();
-	gang.move();
+	for (int z = 0; z < gang.length; z += 1)
+	{
+	gang[z].show();
+	gang[z].move();
+	}
 	player.show();
 	player.move();
 	if (d == true) {player.turn(4);}
