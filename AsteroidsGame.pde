@@ -1,17 +1,17 @@
 Spaceship player = new Spaceship();
-Asteroids gang[] = new Asteroids[7];
-Star wars[] = new Star[300];
+Asteroids gang[] = new Asteroids[10];
+Star wars[] = new Star[650];
 boolean w, s, a, d;
 public void setup() 
 {
-size(512, 512);
+size(800, 800);
 for (int i = 0; i < wars.length; i += 1)
 {
 	wars[i] = new Star();
 }
 for (int z = 0; z < gang.length; z += 1)
 {
-	gang[z] = new Asteroids(((int)Math.random()*400) + 50, ((int)Math.random()*400) + 50);
+	gang[z] = new Asteroids((int)(Math.random()*500) + 150, ((int)Math.random()*500) + 150);
 }
 }
 public void draw() 
