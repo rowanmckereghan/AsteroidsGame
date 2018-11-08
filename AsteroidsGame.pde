@@ -33,6 +33,7 @@ public void draw()
 	if (a == true) {player.turn(-4);}
 	if (w == true) {player.accelerate(0.25);}
 	if (s == true) {player.accelerate(-0.25);}
+	//text(player.lives)
 }
 public void keyPressed()
 {
@@ -82,5 +83,13 @@ public void keyReleased()
 	{
 		s = false;
 	}
+}
+
+public boolean checkCollide()
+{
+	if ((player.myCenterX + 16 <= gang.a && player.myCenterX + 16 >= gang.c) || (player.myCenterX - 8 <= gang.a && player.myCenterX - 8 >= gang.c))
+		{return true;}
+	if ((player.myCenterY + 5 >= gang.b && player.myCenterY + 5 <= gang.d) || (player.myCenterY - 5 >= gang.b && player.myCenterY - 5 <= gang.c))
+		{return true;}
 }
 

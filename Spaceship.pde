@@ -1,6 +1,7 @@
 class Spaceship extends Floater  
 {   
 	public boolean rockets;
+	public int lives;
 	public Spaceship()
 	{
 		corners = 4;
@@ -21,6 +22,7 @@ class Spaceship extends Floater
 		myDirectionX = 0;
 		myDirectionY = 0;
 		rockets = false;
+		lives = 3;
 	}	
 	public void setX(int x)
 	{
