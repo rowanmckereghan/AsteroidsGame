@@ -1,7 +1,7 @@
 class Asteroids extends Floater
 {
 	private int rotateSpeed;
-	public int a, b, c, d;
+	private int a, b, c, d;
 	public Asteroids(int x, int y)
 	{
 		 corners = (int)(Math.random()*4) + 5;
@@ -110,6 +110,22 @@ class Asteroids extends Floater
 	public double getPointDirection()
 	{
 		return myPointDirection;
+	}
+	public int getA()
+	{
+		return a;
+	}
+	public int getB()
+	{
+		return b;
+	}
+	public int getC()
+	{
+		return c;
+	}
+	public int getD()
+	{
+		return d;
 	}
 public void show ()  //Draws the floater at the current position  
   {             
