@@ -35,7 +35,7 @@ class Asteroids extends Floater
   		 	yCorners[i] = yCorners[i - 1] + ((int)(Math.random()*-20));
   		 	}
   		 }
-  		 myColor = color(255, 0, 0);
+  		 myColor = color(254, 0, 0);
   		 myCenterX = x;
   		 myCenterY = y; 
   		 myDirectionX = (Math.random()*5) - 2;

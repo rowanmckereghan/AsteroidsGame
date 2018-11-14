@@ -52,17 +52,19 @@ public void draw()
 	{
 	gang[z].show();
 	gang[z].move();
-	if ((player.myCenterX + 16 <= gang[z].getA() && player.myCenterX + 16 >= gang[z].getC()) || (player.myCenterX - 8 <= gang[z].getA() && player.myCenterX - 8 >= gang[z].getC()))
+	if ((player.myCenterX + 16 >= gang[z].getA() && player.myCenterX + 16 <= gang[z].getC()) || (player.myCenterX - 8 >= gang[z].getA() && player.myCenterX - 8 <= gang[z].getC()))
 		{
 			checkCollide = true;
 			var1 = 180;
 			var2 = 120;
+			break;
 		}
 	else if ((player.myCenterY + 5 >= gang[z].getB() && player.myCenterY + 5 <= gang[z].getD()) || (player.myCenterY - 5 >= gang[z].getB() && player.myCenterY - 5 <= gang[z].getD()))
 		{
 			checkCollide = true;
 			var1 = 180;
 			var2 = 120;
+			break;
 		}
 	else {checkCollide = false;}
 	}
