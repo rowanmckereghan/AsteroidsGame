@@ -1,5 +1,5 @@
 Spaceship player = new Spaceship();
-Asteroids gang[] = new Asteroids[10];
+ArrayList <Asteroids> gang = new ArrayList <Asteroids>();
 Star wars[] = new Star[650];
 boolean w, s, a, d, checkCollide, startAndEnd;
 int var1, var2;
@@ -9,6 +9,7 @@ public void setup()
 frameRate(60);
 var1 = 180;
 var2 = 120;
+int numberOfAsteroids = 20;
 background(0);
 size(800, 800);
 startAndEnd = true;
@@ -17,9 +18,9 @@ for (int i = 0; i < wars.length; i += 1)
 {
 	wars[i] = new Star();
 }
-for (int z = 0; z < gang.length; z += 1)
+for (int z = 0; z < numberOfAsteroids; z += 1)
 {
-	gang[z] = new Asteroids((int)(Math.random()*500) + 150, ((int)Math.random()*500) + 150);
+	gang.add(new Asteroids((int)(Math.random()*500) + 150, ((int)Math.random()*500) + 150));
 }
 }
 public void draw() 
@@ -48,11 +49,12 @@ public void draw()
 		wars[i].show();
 	}
 	strokeWeight(1);
-	for (int z = 0; z < gang.length; z += 1)
+	for (int z = 0; z < gang.size(); z += 1)
 	{
-	gang[z].show();
-	gang[z].move();
-	if ((player.myCenterX + 16 >= gang[z].getA() && player.myCenterX + 16 <= gang[z].getC()) || (player.myCenterX - 8 >= gang[z].getA() && player.myCenterX - 8 <= gang[z].getC()))
+	gang.get(z).show();
+	gang.get(z).move();
+	//fix this, replace w/ dist() and arrayLists
+	/*if ((dist(player.myCenterX + 16, gang.get(i).getA()) <= 5) && (dist(player.myCenterX + 16, gang.get(i).getC()) <= 5) || (player.myCenterX - 8 >= gang[z].getA() && player.myCenterX - 8 <= gang[z].getC()))
 		{
 			checkCollide = true;
 			var1 = 180;
@@ -66,7 +68,7 @@ public void draw()
 			var2 = 120;
 			break;
 		}
-	else {checkCollide = false;}
+	else {checkCollide = false;}*/
 	}
 	player.show();
 	player.move();
@@ -74,7 +76,7 @@ public void draw()
 	if (a == true) {player.turn(-4);}
 	if (w == true) {player.accelerate(0.1);}
 	if (s == true) {player.accelerate(-0.1);}
-	if (checkCollide == true)
+	/*if (checkCollide == true)
 	{
 		player.lives = player.lives - 1;
 		startAndEnd = true;
@@ -83,7 +85,7 @@ public void draw()
 		player.setDirectionX(0);
 		player.setDirectionY(0);
 		player.setPointDirection(0);
-	}
+	}*/
 	fill(255);
 	text(player.lives, 100, 100);
 }
