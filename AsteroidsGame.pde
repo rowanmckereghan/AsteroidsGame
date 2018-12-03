@@ -54,21 +54,21 @@ public void draw()
 	gang.get(z).show();
 	gang.get(z).move();
 	//fix this, replace w/ dist() and arrayLists
-	/*if ((dist(player.myCenterX + 16, gang.get(i).getA()) <= 5) && (dist(player.myCenterX + 16, gang.get(i).getC()) <= 5) || (player.myCenterX - 8 >= gang[z].getA() && player.myCenterX - 8 <= gang[z].getC()))
+	if ((dist((float)player.myCenterX + 16, (float)player.myCenterY + 5, (float)gang.get(z).getA(), (float)gang.get(z).getB())) <= 1)
 		{
 			checkCollide = true;
 			var1 = 180;
 			var2 = 120;
 			break;
 		}
-	else if ((player.myCenterY + 5 >= gang[z].getB() && player.myCenterY + 5 <= gang[z].getD()) || (player.myCenterY - 5 >= gang[z].getB() && player.myCenterY - 5 <= gang[z].getD()))
+	else if ((dist((float)player.myCenterX + 16, (float)player.myCenterY + 5, (float)(float)gang.get(z).getC(), (float)(float)(float)gang.get(z).getD())) <= 1)
 		{
 			checkCollide = true;
 			var1 = 180;
 			var2 = 120;
 			break;
 		}
-	else {checkCollide = false;}*/
+	else {checkCollide = false;}
 	}
 	player.show();
 	player.move();
@@ -76,7 +76,7 @@ public void draw()
 	if (a == true) {player.turn(-4);}
 	if (w == true) {player.accelerate(0.1);}
 	if (s == true) {player.accelerate(-0.1);}
-	/*if (checkCollide == true)
+	if (checkCollide == true)
 	{
 		player.lives = player.lives - 1;
 		startAndEnd = true;
@@ -85,7 +85,7 @@ public void draw()
 		player.setDirectionX(0);
 		player.setDirectionY(0);
 		player.setPointDirection(0);
-	}*/
+	}
 	fill(255);
 	text(player.lives, 100, 100);
 }
