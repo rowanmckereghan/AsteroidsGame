@@ -53,7 +53,6 @@ public void draw()
 	{
 	gang.get(z).show();
 	gang.get(z).move();
-	//fix this, replace w/ dist() and arrayLists
 	if ((dist((float)player.myCenterX + 16, (float)player.myCenterY + 5, (float)gang.get(z).getA(), (float)gang.get(z).getB())) <= 1)
 		{
 			checkCollide = true;
