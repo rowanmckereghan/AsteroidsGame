@@ -53,21 +53,31 @@ public void draw()
 	{
 	gang.get(z).show();
 	gang.get(z).move();
-	if ((dist((float)player.myCenterX + 16, (float)player.myCenterY + 5, (float)gang.get(z).getA(), (float)gang.get(z).getB())) <= 1)
+	if ((dist((float)player.myCenterX, (float)player.myCenterY, (float)gang.get(z).getX(), (float)gang.get(z).getY())) <= 20)
 		{
 			checkCollide = true;
 			var1 = 180;
 			var2 = 120;
 			break;
 		}
-	else if ((dist((float)player.myCenterX + 16, (float)player.myCenterY + 5, (float)(float)gang.get(z).getC(), (float)(float)(float)gang.get(z).getD())) <= 1)
+	/*else if ((dist((float)player.myCenterX, (float)player.myCenterY + 8, (float)gang.get(z).getX(), (float)gang.get(z).getY())) <= 5)
 		{
 			checkCollide = true;
 			var1 = 180;
 			var2 = 120;
 			break;
-		}
+		}*/
 	else {checkCollide = false;}
+	}
+	if (checkCollide == true)
+	{
+		player.lives = player.lives - 1;
+		startAndEnd = true;
+		player.setX(560);
+		player.setY(560);
+		player.setDirectionX(0);
+		player.setDirectionY(0);
+		player.setPointDirection(0);
 	}
 	player.show();
 	player.move();
@@ -75,16 +85,6 @@ public void draw()
 	if (a == true) {player.turn(-4);}
 	if (w == true) {player.accelerate(0.1);}
 	if (s == true) {player.accelerate(-0.1);}
-	if (checkCollide == true)
-	{
-		player.lives = player.lives - 1;
-		startAndEnd = true;
-		player.setX(250);
-		player.setY(250);
-		player.setDirectionX(0);
-		player.setDirectionY(0);
-		player.setPointDirection(0);
-	}
 	fill(255);
 	text(player.lives, 100, 100);
 }
