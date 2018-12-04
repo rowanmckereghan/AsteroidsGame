@@ -133,10 +133,10 @@ public void keyReleased()
 		w = false;
 		player.rockets = false;
 	}
-	if (key == 's')
+	if (key == 's') 
 	{
 		s = false;
-	}
+	} 
 }
 
 
