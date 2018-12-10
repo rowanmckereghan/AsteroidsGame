@@ -53,7 +53,7 @@ public void draw()
 	{
 	gang.get(z).show();
 	gang.get(z).move();
-	if ((dist((float)player.myCenterX, (float)player.myCenterY, (float)gang.get(z).getX(), (float)gang.get(z).getY())) <= 20)
+	if ((dist((float)player.myCenterX, (float)player.myCenterY, (float)gang.get(z).getX(), (float)gang.get(z).getY())) <= 12)//dist((float)gang.get(z).getX(), (float)gang.get(z).getY(), (float)gang.get(z).getC(), (float)gang.get(z).getD()))
 		{
 			checkCollide = true;
 			var1 = 180;
