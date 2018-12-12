@@ -1,8 +1,10 @@
 Spaceship player = new Spaceship();
 ArrayList <Asteroids> gang = new ArrayList <Asteroids>();
+ArrayList <Bullet> pop = new ArrayList <Bullet>();
 Star wars[] = new Star[650];
 boolean w, s, a, d, checkCollide, startAndEnd;
 int var1, var2;
+int numberOfClicks = 0;
 PImage title;
 public void setup() 
 {
@@ -53,7 +55,7 @@ public void draw()
 	{
 	gang.get(z).show();
 	gang.get(z).move();
-	if ((dist((float)player.myCenterX, (float)player.myCenterY, (float)gang.get(z).getX(), (float)gang.get(z).getY())) <= 12)//dist((float)gang.get(z).getX(), (float)gang.get(z).getY(), (float)gang.get(z).getC(), (float)gang.get(z).getD()))
+	if ((dist((float)player.myCenterX, (float)player.myCenterY, (float)gang.get(z).getX(), (float)gang.get(z).getY())) <= 12) //dist((float)gang.get(z).getX(), (float)gang.get(z).getY(), (float)gang.get(z).getC(), (float)gang.get(z).getD()))
 		{
 			checkCollide = true;
 			var1 = 180;
@@ -69,6 +71,8 @@ public void draw()
 		}*/
 	else {checkCollide = false;}
 	}
+	//bullet loops
+	//for()
 	if (checkCollide == true)
 	{
 		player.lives = player.lives - 1;

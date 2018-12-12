@@ -4,35 +4,35 @@ class Asteroids extends Floater
 	private int a, b, c, d;
 	public Asteroids(int x, int y)
 	{
-		 corners = (int)(Math.random()*4) + 5;
+		 corners = (int)(Math.random()*3) + 4;
   		 xCorners = new int[corners];
   		 yCorners = new int[corners];
   		 for (int i = 0; i < xCorners.length; i+= 1)
   		 {
   		 	if (i == 0)
   		 	{
-  		 		xCorners[i] = ((int)(Math.random()*20));
-  		 		yCorners[i] = ((int)(Math.random()*20));
+  		 		xCorners[i] = ((int)(Math.random()*30));
+  		 		yCorners[i] = ((int)(Math.random()*30));
   		 	}
   		 	else if (i > 0 && i <= (xCorners.length/4))
   		 	{
-  		 	xCorners[i] = xCorners[i - 1] + ((int)(Math.random()*20));
-  		 	yCorners[i] = yCorners[i - 1] + ((int)(Math.random()*20));
+  		 	xCorners[i] = xCorners[i - 1] + ((int)(Math.random()*30));
+  		 	yCorners[i] = yCorners[i - 1] + ((int)(Math.random()*30));
   		 	}
   		 	else if ((i > ((xCorners.length)/4)) && (i <= ((xCorners.length)/2)))
   		 	{
-  		 	xCorners[i] = xCorners[i - 1] + ((int)(Math.random()*-20));
-  		 	yCorners[i] = yCorners[i - 1] + ((int)(Math.random()*20));
+  		 	xCorners[i] = xCorners[i - 1] + ((int)(Math.random()*-30));
+  		 	yCorners[i] = yCorners[i - 1] + ((int)(Math.random()*30));
   		 	}
   		 	else if (i > ((xCorners.length)/2) &&(i <= (3*(xCorners.length)/4)))
   		 	{
-  		 	xCorners[i] = xCorners[i - 1] + ((int)(Math.random()*-20));
-  		 	yCorners[i] = yCorners[i - 1] + ((int)(Math.random()*-20));
+  		 	xCorners[i] = xCorners[i - 1] + ((int)(Math.random()*-30));
+  		 	yCorners[i] = yCorners[i - 1] + ((int)(Math.random()*-30));
   		 	}
   		 	else if (i > (3*(xCorners.length)/4))
   		 	{
-  		 	xCorners[i] = xCorners[i - 1] + ((int)(Math.random()*20));
-  		 	yCorners[i] = yCorners[i - 1] + ((int)(Math.random()*-20));
+  		 	xCorners[i] = xCorners[i - 1] + ((int)(Math.random()*30));
+  		 	yCorners[i] = yCorners[i - 1] + ((int)(Math.random()*-30));
   		 	}
   		 }
   		 myColor = color(254, 0, 0);

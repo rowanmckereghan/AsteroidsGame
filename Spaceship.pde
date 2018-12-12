@@ -64,6 +64,10 @@ class Spaceship extends Floater
 	{
 		return myPointDirection;
 	}
+	public color getColor()
+	{
+		return myColor;
+	}
 	public void show ()  //Draws the floater at the current position  
   {             
     fill(myColor);   
