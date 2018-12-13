@@ -2,7 +2,8 @@ Spaceship player = new Spaceship();
 ArrayList <Asteroids> gang = new ArrayList <Asteroids>();
 ArrayList <Bullet> pop = new ArrayList <Bullet>();
 Star wars[] = new Star[650];
-boolean w, s, a, d, checkCollide, startAndEnd;
+boolean w, s, a, d, space, checkCollide, startAndEnd;
+boolean gameOver = false;
 int var1, var2;
 int numberOfClicks = 0;
 PImage title;
@@ -27,7 +28,12 @@ for (int z = 0; z < numberOfAsteroids; z += 1)
 }
 public void draw() 
 {
-	if (startAndEnd == true)
+	if (gameOver == true)
+	{
+		background(0);
+		text("Game Over", 275, 400);
+	}
+	else if (startAndEnd == true && gameOver == false)
 	{
 		background(0);
 		image(title, -275, 0);
@@ -55,7 +61,7 @@ public void draw()
 	{
 	gang.get(z).show();
 	gang.get(z).move();
-	if ((dist((float)player.myCenterX, (float)player.myCenterY, (float)gang.get(z).getX(), (float)gang.get(z).getY())) <= 12) //dist((float)gang.get(z).getX(), (float)gang.get(z).getY(), (float)gang.get(z).getC(), (float)gang.get(z).getD()))
+	if ((dist((float)player.getX(), (float)player.getY(), (float)gang.get(z).getX(), (float)gang.get(z).getY())) <= 12) //dist((float)gang.get(z).getX(), (float)gang.get(z).getY(), (float)gang.get(z).getC(), (float)gang.get(z).getD()))
 		{
 			checkCollide = true;
 			var1 = 180;
@@ -70,9 +76,19 @@ public void draw()
 			break;
 		}*/
 	else {checkCollide = false;}
-	}
+}
 	//bullet loops
-	//for()
+	for(int o = 0; o < pop.size(); o++)
+	{
+		pop.get(o).show();
+		pop.get(o).move();
+	if ((dist((float)pop.get(o).getX(), (float)pop.get(o).getY(), (float)gang.get(z).getX(), (float)gang.get(z).getY())) <= 12) //dist((float)gang.get(z).getX(), (float)gang.get(z).getY(), (float)gang.get(z).getC(), (float)gang.get(z).getD()))
+		{
+			gang.remove(z);
+			pop.remove(o);
+		}
+	}
+
 	if (checkCollide == true)
 	{
 		player.lives = player.lives - 1;
@@ -82,6 +98,10 @@ public void draw()
 		player.setDirectionX(0);
 		player.setDirectionY(0);
 		player.setPointDirection(0);
+		if (player.lives <= 0)
+		{
+			gameOver = true;
+		}
 	}
 	player.show();
 	player.move();
@@ -111,6 +131,11 @@ public void keyPressed()
 	if (key == 's')
 	{
 		s = true;
+	}
+	if (key == 'r')
+	{
+		pop.add(new Bullet(player));
+		numberOfClicks++;
 	}
 	if (key == 'f')
 	{

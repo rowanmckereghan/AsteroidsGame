@@ -5,6 +5,7 @@ class Bullet extends Floater {
 		corners = 5;
 		xCorners = new int[corners];
 		yCorners = new int[corners];
+		myColor = color(255, 0 ,0);
 		xCorners[0] = 2;
 		yCorners[0] = -2;
 		xCorners[1] = 6;
@@ -15,13 +16,12 @@ class Bullet extends Floater {
 		yCorners[3] = 2;
 		xCorners[4] = 2;
 		yCorners[4] = 2;
-		myColor = theShip.getColor();
 		myCenterX = theShip.getX();
 		myCenterY = theShip.getY();
 		myPointDirection = theShip.getPointDirection();
-		cRadians = myPointDirection*(Math.PI/180);
+		cRadians = myPointDirection*((Math.PI)/180);
 		myDirectionX = (5 * Math.cos(cRadians)) + theShip.getDirectionX();
-		myDirectionY = (5 * Math.cos(cRadians)) + theShip.getDirectionY();
+		myDirectionY = (5 * Math.sin(cRadians)) + theShip.getDirectionY();
 	}
 	public void show ()  //Draws the floater at the current position  
   {             
