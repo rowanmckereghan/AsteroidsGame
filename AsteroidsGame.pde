@@ -33,7 +33,12 @@ public void draw()
 		background(0);
 		text("Game Over", 275, 400);
 	}
-	else if (startAndEnd == true && gameOver == false)
+	else if ((gameOver == false) && (gang.size() <= 0))
+	{
+		background(0);
+		text("You Won!", 275, 400);
+	}
+	else if (startAndEnd == true && gameOver == false && gang.size() > 0)
 	{
 		background(0);
 		image(title, -275, 0);
@@ -61,7 +66,7 @@ public void draw()
 	{
 	gang.get(z).show();
 	gang.get(z).move();
-	if ((dist((float)player.getX(), (float)player.getY(), (float)gang.get(z).getX(), (float)gang.get(z).getY())) <= 12) //dist((float)gang.get(z).getX(), (float)gang.get(z).getY(), (float)gang.get(z).getC(), (float)gang.get(z).getD()))
+	if ((dist((float)player.getX(), (float)player.getY(), (float)gang.get(z).getX(), (float)gang.get(z).getY())) <= 18) //dist((float)gang.get(z).getX(), (float)gang.get(z).getY(), (float)gang.get(z).getC(), (float)gang.get(z).getD()))
 		{
 			checkCollide = true;
 			var1 = 180;
@@ -82,19 +87,22 @@ public void draw()
 	{
 		pop.get(o).show();
 		pop.get(o).move();
-	if ((dist((float)pop.get(o).getX(), (float)pop.get(o).getY(), (float)gang.get(z).getX(), (float)gang.get(z).getY())) <= 12) //dist((float)gang.get(z).getX(), (float)gang.get(z).getY(), (float)gang.get(z).getC(), (float)gang.get(z).getD()))
+		for (int p = 0; p < gang.size(); p += 1)
+	{
+	if ((dist((float)pop.get(o).getX(), (float)pop.get(o).getY(), (float)gang.get(p).getX(), (float)gang.get(p).getY())) <= 15) //dist((float)gang.get(z).getX(), (float)gang.get(z).getY(), (float)gang.get(z).getC(), (float)gang.get(z).getD()))
 		{
-			gang.remove(z);
+			gang.remove(p);
 			pop.remove(o);
+			break;
 		}
 	}
-
+}
 	if (checkCollide == true)
 	{
 		player.lives = player.lives - 1;
 		startAndEnd = true;
-		player.setX(560);
-		player.setY(560);
+		player.setX((int)(Math.random()*400) + 200);
+		player.setY((int)(Math.random()*400) + 200);
 		player.setDirectionX(0);
 		player.setDirectionY(0);
 		player.setPointDirection(0);

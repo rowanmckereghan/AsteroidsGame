@@ -49,22 +49,28 @@ class Bullet extends Floater {
     rotate(-1*dRadians);
     translate(-1*(float)myCenterX, -1*(float)myCenterY);
   }  
-
+  	
+  	public void move ()   //move the floater in the current direction of travel
+	  {      
+	    //change the x and y coordinates by myDirectionX and myDirectionY       
+	    myCenterX += myDirectionX;    
+	    myCenterY += myDirectionY;     
+	  }   
   	public void setX(int x)
 	{
 		myCenterX = x;
 	}
-	public int getX()
+	public double getX()
 	{
-		return (int)myCenterX;
+		return (double)myCenterX;
 	}
 	public void setY(int y)
 	{
 		myCenterY = y;
 	}
-	public int getY()
+	public double getY()
 	{
-		return (int)myCenterY;
+		return (double)myCenterY;
 	}
 	public void setDirectionX(double x)
 	{

@@ -4,35 +4,35 @@ class Asteroids extends Floater
 	private int a, b, c, d;
 	public Asteroids(int x, int y)
 	{
-		 corners = (int)(Math.random()*3) + 4;
+		 corners = (int)(Math.random()*5) + 5;
   		 xCorners = new int[corners];
   		 yCorners = new int[corners];
   		 for (int i = 0; i < xCorners.length; i+= 1)
   		 {
   		 	if (i == 0)
   		 	{
-  		 		xCorners[i] = ((int)(Math.random()*30));
-  		 		yCorners[i] = ((int)(Math.random()*30));
+  		 		xCorners[i] = ((int)(Math.random()*15) + 10);
+  		 		yCorners[i] = ((int)(Math.random()*15) + 10);
   		 	}
   		 	else if (i > 0 && i <= (xCorners.length/4))
   		 	{
-  		 	xCorners[i] = xCorners[i - 1] + ((int)(Math.random()*30));
-  		 	yCorners[i] = yCorners[i - 1] + ((int)(Math.random()*30));
+  		 	xCorners[i] = xCorners[i - 1] + ((int)(Math.random()*15) + 10);
+  		 	yCorners[i] = yCorners[i - 1] + ((int)(Math.random()*15) + 10);
   		 	}
   		 	else if ((i > ((xCorners.length)/4)) && (i <= ((xCorners.length)/2)))
   		 	{
-  		 	xCorners[i] = xCorners[i - 1] + ((int)(Math.random()*-30));
-  		 	yCorners[i] = yCorners[i - 1] + ((int)(Math.random()*30));
+  		 	xCorners[i] = xCorners[i - 1] + ((int)(Math.random()*-15) - 10);
+  		 	yCorners[i] = yCorners[i - 1] + ((int)(Math.random()*15) + 10);
   		 	}
   		 	else if (i > ((xCorners.length)/2) &&(i <= (3*(xCorners.length)/4)))
   		 	{
-  		 	xCorners[i] = xCorners[i - 1] + ((int)(Math.random()*-30));
-  		 	yCorners[i] = yCorners[i - 1] + ((int)(Math.random()*-30));
+  		 	xCorners[i] = xCorners[i - 1] + ((int)(Math.random()*-15) - 10);
+  		 	yCorners[i] = yCorners[i - 1] + ((int)(Math.random()*-15) - 10);
   		 	}
   		 	else if (i > (3*(xCorners.length)/4))
   		 	{
-  		 	xCorners[i] = xCorners[i - 1] + ((int)(Math.random()*30));
-  		 	yCorners[i] = yCorners[i - 1] + ((int)(Math.random()*-30));
+  		 	xCorners[i] = xCorners[i - 1] + ((int)(Math.random()*15) + 10);
+  		 	yCorners[i] = yCorners[i - 1] + ((int)(Math.random()*-15) - 10);
   		 	}
   		 }
   		 myColor = color(254, 0, 0);
@@ -75,17 +75,17 @@ class Asteroids extends Floater
 	{
 		myCenterX = x;
 	}
-	public int getX()
+	public double getX()
 	{
-		return (int)myCenterX;
+		return (double)myCenterX;
 	}
 	public void setY(int y)
 	{
 		myCenterY = y;
 	}
-	public int getY()
+	public double getY()
 	{
-		return (int)myCenterY;
+		return (double)myCenterY;
 	}
 	public void setDirectionX(double x)
 	{
